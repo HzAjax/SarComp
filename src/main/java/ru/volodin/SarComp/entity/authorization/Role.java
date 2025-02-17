@@ -11,7 +11,6 @@ import java.util.UUID;
 @Setter
 @Entity
 @Builder
-@Table(name = "roles")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Role implements GrantedAuthority {

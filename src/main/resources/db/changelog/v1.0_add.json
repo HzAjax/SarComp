@@ -1,0 +1,420 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "1",
+        "author": "volodin",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "role",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "uuid",
+                  "constraints": {
+                    "primaryKey": true
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": "varchar(255)"
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "user",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "uuid",
+                  "constraints": {
+                    "primaryKey": true
+                  }
+                },
+                {
+                  "name": "telegram_id",
+                  "type": "bigint"
+                },
+                {
+                  "name": "login",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "password",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "role_id",
+                  "type": "uuid"
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "user",
+              "baseColumnNames": "role_id",
+              "referencedTableName": "role",
+              "referencedColumnNames": "id",
+              "constraintName": "fk_user_role"
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "graphics_card",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "uuid",
+                  "constraints": {
+                    "primaryKey": true,
+                    "nullable": false
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": "varchar(255)",
+                  "constraints": {
+                    "nullable": false
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "memory",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "uuid",
+                  "constraints": {
+                    "primaryKey": true,
+                    "nullable": false
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": "varchar(255)",
+                  "constraints": {
+                    "nullable": false
+                  }
+                },
+                {
+                  "name": "memory_type",
+                  "type": "varchar(255)",
+                  "constraints": {
+                    "nullable": false
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "motherboard",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "uuid",
+                  "constraints": {
+                    "primaryKey": true,
+                    "nullable": false
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": "varchar(255)",
+                  "constraints": {
+                    "nullable": false
+                  }
+                },
+                {
+                  "name": "memory_type",
+                  "type": "varchar(255)",
+                  "constraints": {
+                    "nullable": false
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "processor",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "uuid",
+                  "constraints": {
+                    "primaryKey": true,
+                    "nullable": false
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": "varchar(255)",
+                  "constraints": {
+                    "nullable": false
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "addition",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "uuid",
+                  "constraints": {
+                    "primaryKey": true
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "cost",
+                  "type": "float"
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "client",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "uuid",
+                  "constraints": {
+                    "primaryKey": true
+                  }
+                },
+                {
+                  "name": "type",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "name",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "phone",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "reg_date",
+                  "type": "timestamp"
+                },
+                {
+                  "name": "id_serial_or_inn",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "id_number_or_ogrn",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "issued",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "reg_address",
+                  "type": "varchar(255)"
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "comp",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "uuid",
+                  "constraints": {
+                    "primaryKey": true
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "cost",
+                  "type": "float"
+                },
+                {
+                  "name": "start_order",
+                  "type": "timestamp"
+                },
+                {
+                  "name": "end_order",
+                  "type": "timestamp"
+                },
+                {
+                  "name": "client_id",
+                  "type": "uuid"
+                },
+                {
+                  "name": "photos_id",
+                  "type": "uuid"
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "comp",
+              "baseColumnNames": "client_id",
+              "referencedTableName": "client",
+              "referencedColumnNames": "id",
+              "constraintName": "fk_comp_client"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "comp",
+              "baseColumnNames": "photos_id",
+              "referencedTableName": "photo",
+              "referencedColumnNames": "id",
+              "constraintName": "fk_comp_photo"
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "lead",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "uuid",
+                  "constraints": {
+                    "primaryKey": true
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "day_count",
+                  "type": "int"
+                },
+                {
+                  "name": "start_order",
+                  "type": "timestamp"
+                },
+                {
+                  "name": "phone",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "is_done",
+                  "type": "boolean"
+                },
+                {
+                  "name": "comp_id",
+                  "type": "uuid"
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "lead",
+              "baseColumnNames": "comp_id",
+              "referencedTableName": "comp",
+              "referencedColumnNames": "id",
+              "constraintName": "fk_lead_comp"
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "report",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "uuid",
+                  "constraints": {
+                    "primaryKey": true
+                  }
+                },
+                {
+                  "name": "client_id",
+                  "type": "uuid"
+                },
+                {
+                  "name": "comp_id",
+                  "type": "uuid"
+                },
+                {
+                  "name": "type",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "create_ts",
+                  "type": "timestamp"
+                },
+                {
+                  "name": "doc_number",
+                  "type": "int"
+                },
+                {
+                  "name": "report_name",
+                  "type": "varchar(255)"
+                },
+                {
+                  "name": "file_path",
+                  "type": "varchar(255)"
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "report",
+              "baseColumnNames": "client_id",
+              "referencedTableName": "client",
+              "referencedColumnNames": "id",
+              "constraintName": "fk_report_client"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "report",
+              "baseColumnNames": "comp_id",
+              "referencedTableName": "comp",
+              "referencedColumnNames": "id",
+              "constraintName": "fk_report_comp"
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "photo",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "uuid",
+                  "constraints": {
+                    "primaryKey": true
+                  }
+                },
+                {
+                  "name": "extension",
+                  "type": "varchar(255)"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -10,12 +10,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "memories")
 public class Memory extends Component {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-
     @Enumerated(EnumType.STRING)
     private MemoryType memoryType;
 }

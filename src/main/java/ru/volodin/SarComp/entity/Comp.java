@@ -1,9 +1,7 @@
 package ru.volodin.SarComp.entity;
 
-import ch.qos.logback.core.net.server.Client;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +16,6 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@Table(name = "comps") // почему
 public class Comp {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -39,6 +36,6 @@ public class Comp {
     @ManyToOne
     private Client client;
 
-    @ManyToMany
+    @OneToOne
     private Photo photos;
 }

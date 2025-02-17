@@ -13,7 +13,6 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@Table(name = "reports")
 public class Report {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -34,10 +33,7 @@ public class Report {
     private LocalDateTime createTs;
 
     @NotNull(message = "Не указан номер договора")
-    @Column(name = "doc_number")
     private Integer docNumber;
-    @Column(name = "report_name")
     private String reportName;
-    @Column(name = "file_path")
     private String filePath;
 }

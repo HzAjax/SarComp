@@ -11,7 +11,6 @@ import java.util.UUID;
 @Setter
 @Entity
 @Builder
-@Table(name = "photos")
 public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
