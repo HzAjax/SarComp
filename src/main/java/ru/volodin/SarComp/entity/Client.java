@@ -26,8 +26,4 @@ public class Client {
     @NotEmpty(message = "Не указан телефон клиента")
     private String phone;
     private Date regDate;
-    private String idSerialOrInn;
-    private String idNumberOrOgrn;
-    private String issued;
-    private String regAddress;
 }

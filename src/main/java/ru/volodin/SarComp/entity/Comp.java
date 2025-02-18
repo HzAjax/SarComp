@@ -25,9 +25,14 @@ public class Comp {
     @NotNull(message = "не указана стоимость")
     private Float cost;
 
+    @ManyToOne
     private Motherboard motherboard;
-    private GraphicsCard graphics_card;
+    @ManyToOne
+    @JoinColumn(name = "graphicscard_id")
+    private GraphicsCard graphicsCard;
+    @ManyToOne
     private Processor processor;
+    @ManyToOne
     private Memory memory;
 
     private Date startOrder;
