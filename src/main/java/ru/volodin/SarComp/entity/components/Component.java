@@ -16,5 +16,7 @@ public class Component {
     @GeneratedValue(strategy = GenerationType.UUID)
     protected UUID id;
 
+//TO DO Type ENUM
+//TO DO cost
     protected String name;
 }
