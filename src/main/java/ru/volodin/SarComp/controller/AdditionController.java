@@ -10,7 +10,7 @@ import ru.volodin.SarComp.service.AdditionService;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/sarcomp/addition")
+@RequestMapping("/sarcomp/additions")
 @SuppressWarnings({"unused"})
 public class AdditionController {
 

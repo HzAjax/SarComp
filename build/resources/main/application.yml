@@ -16,5 +16,9 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/db.changelog-master.yml
+  servlet:
+    multipart:
+      max-file-size: 10MB  # Максимальный размер загружаемого файла
+      max-request-size: 10MB  # Максимальный размер всего запроса
 server:
   port: 8080
