@@ -5,5 +5,6 @@ import ru.volodin.SarComp.entity.components.Component;
 
 import java.util.UUID;
 
-public interface ComponentRepository extends JpaRepository<Component, UUID> {
+
+public interface ComponentRepository <T extends Component> extends JpaRepository<T, UUID> {
 }

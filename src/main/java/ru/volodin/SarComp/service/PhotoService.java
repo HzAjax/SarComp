@@ -70,7 +70,7 @@ public class PhotoService {
         String extension = getExtensionFromFilename(filename);
 
         Optional<FileExtension> ext = Arrays.stream(FileExtension.values())
-                .filter(e -> e.getExtension().equalsIgnoreCase(extension))
+                .filter(e -> e.getExtension().equalsIgnoreCase("." + extension))
                 .findFirst();
 
         if (ext.isPresent()) {
@@ -99,7 +99,7 @@ public class PhotoService {
     }
 
     private String getFilenameWithExt (Photo photo) {
-        return photo.getId() + "." + photo.getExtension();
+        return photo.getId() + photo.getExtension();
     }
 
     private String getExtensionFromFilename(String fileName) {
