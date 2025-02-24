@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: volodin
+      changes:
+        - addColumn:
+            tableName: component
+            columns:
+              - column:
+                  name: type
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: cost
+                  type: FLOAT
+                  constraints:
+                    nullable: false

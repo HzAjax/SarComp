@@ -3,3 +3,5 @@ databaseChangeLog:
       file: db/changelog/v1.0_add_auth.yml
   - include:
       file: db/changelog/v2.0_add_other.yml
+  - include:
+      file: db/changelog/v3.0_add_component.yml
