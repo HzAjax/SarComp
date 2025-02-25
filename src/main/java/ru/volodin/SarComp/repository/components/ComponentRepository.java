@@ -10,5 +10,5 @@ import java.util.UUID;
 
 
 public interface ComponentRepository <T extends Component> extends JpaRepository<T, UUID> {
-    List<Component> findAllByType (ComponentType type);
+    List<T> findAllByType (ComponentType type);
 }
