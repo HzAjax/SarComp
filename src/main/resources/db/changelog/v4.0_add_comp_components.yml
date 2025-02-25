@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: volodin
+      changes:
+        - addColumn:
+            tableName: comp
+            columns:
+              - column:
+                  name: motherboard_id
+                  type: UUID
+                  constraints:
+                    nullable: true
+              - column:
+                  name: graphicscard_id
+                  type: UUID
+                  constraints:
+                    nullable: true
+              - column:
+                  name: processor_id
+                  type: UUID
+                  constraints:
+                    nullable: true
+              - column:
+                  name: memory_id
+                  type: UUID
+                  constraints:
+                    nullable: true
+        - addForeignKeyConstraint:
+            baseTableName: comp
+            baseColumnNames: motherboard_id
+            referencedTableName: motherboard
+            referencedColumnNames: id
+            constraintName: fk_comp_motherboard
+            onDelete: SET NULL
+        - addForeignKeyConstraint:
+            baseTableName: comp
+            baseColumnNames: graphicscard_id
+            referencedTableName: graphics_card
+            referencedColumnNames: id
+            constraintName: fk_comp_graphicscard
+            onDelete: SET NULL
+        - addForeignKeyConstraint:
+            baseTableName: comp
+            baseColumnNames: processor_id
+            referencedTableName: processor
+            referencedColumnNames: id
+            constraintName: fk_comp_processor
+            onDelete: SET NULL
+        - addForeignKeyConstraint:
+            baseTableName: comp
+            baseColumnNames: memory_id
+            referencedTableName: memory
+            referencedColumnNames: id
+            constraintName: fk_comp_memory
+            onDelete: SET NULL

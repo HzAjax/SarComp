@@ -5,3 +5,7 @@ databaseChangeLog:
       file: db/changelog/v2.0_add_other.yml
   - include:
       file: db/changelog/v3.0_add_component.yml
+  - include:
+      file: db/changelog/v4.0_add_comp_components.yml
+  - include:
+      file: db/changelog/v5.0_add_report.yml

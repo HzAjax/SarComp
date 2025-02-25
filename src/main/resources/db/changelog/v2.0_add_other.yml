@@ -208,17 +208,3 @@ databaseChangeLog:
                   referencedTableName: comp
                   referencedColumnNames: id
                   constraintName: fk_lead_comp
-            - createTable:
-                  tableName: report
-                  columns:
-                      - column:
-                            name: id
-                            type: UUID
-                            constraints:
-                                primaryKey: true
-                      - column:
-                            name: client_id
-                            type: UUID
-                      - column:
-                            name: comp_id
-                            type: UUID
