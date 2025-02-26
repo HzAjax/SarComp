@@ -2,6 +2,7 @@ package ru.volodin.SarComp.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import ru.volodin.SarComp.entity.enums.CustomerType;
@@ -17,7 +18,7 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @NotEmpty(message = "Не указан тип клиента")
+    @NotNull(message = "Не указан тип клиента")
     @Enumerated(EnumType.STRING)
     private CustomerType type;
 
