@@ -20,7 +20,6 @@ import java.util.UUID;
 @JsonSubTypes({
         @JsonSubTypes.Type(value = GraphicsCard.class, name = "GC"),
         @JsonSubTypes.Type(value = Memory.class, name = "MEM"),
-        @JsonSubTypes.Type(value = Motherboard.class, name = "MOTHER"),
         @JsonSubTypes.Type(value = Processor.class, name = "PROC")
 })
 public class Component {

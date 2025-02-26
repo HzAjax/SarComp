@@ -8,4 +8,5 @@ import lombok.Setter;
 @Setter
 @Entity
 public class GraphicsCard extends Component {
+    private Integer memory;
 }

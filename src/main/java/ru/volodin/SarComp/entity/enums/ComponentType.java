@@ -4,6 +4,5 @@ package ru.volodin.SarComp.entity.enums;
 public enum ComponentType {
     GC,
     MEM,
-    MOTHER,
     PROC;
 }

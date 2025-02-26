@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: volodin
+      changes:
+        - addColumn:
+            tableName: graphics_card
+            columns:
+              - column:
+                  name: memory
+                  type: INTEGER
+        - addColumn:
+            tableName: processor
+            columns:
+              - column:
+                  name: rate
+                  type: FLOAT
+              - column:
+                  name: power
+                  type: VARCHAR(255)

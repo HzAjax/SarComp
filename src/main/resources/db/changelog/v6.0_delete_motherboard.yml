@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: volodin
+      changes:
+        - dropForeignKeyConstraint:
+            baseTableName: comp
+            constraintName: fk_comp_motherboard
+        - dropColumn:
+            tableName: comp
+            columnName: motherboard_id
+        - dropTable:
+            tableName: motherboard

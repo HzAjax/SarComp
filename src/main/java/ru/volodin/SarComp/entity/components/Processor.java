@@ -10,4 +10,6 @@ import java.util.UUID;
 @Setter
 @Entity
 public class Processor extends Component {
+    private Float rate;
+    private String power;
 }

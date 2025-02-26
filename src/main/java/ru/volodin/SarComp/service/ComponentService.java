@@ -20,8 +20,6 @@ public class ComponentService {
     @Autowired
     private ComponentRepository<Memory> memoryComponentRepository;
     @Autowired
-    private ComponentRepository<Motherboard> motherboardComponentRepository;
-    @Autowired
     private ComponentRepository<Processor> processComponentRepository;
 
     public List<? extends Component> findAll(ComponentType componentType){
@@ -29,8 +27,6 @@ public class ComponentService {
             return graphicsCardComponentRepository.findAllByType(componentType);
         } if (componentType == ComponentType.MEM){
             return memoryComponentRepository.findAllByType(componentType);
-        } if (componentType == ComponentType.MOTHER){
-            return motherboardComponentRepository.findAllByType(componentType);
         } if (componentType == ComponentType.PROC){
             return processComponentRepository.findAllByType(componentType);
         } else {
@@ -43,8 +39,6 @@ public class ComponentService {
            return graphicsCardComponentRepository.save((GraphicsCard) component);
         } if (component.getType() == ComponentType.MEM) {
             return memoryComponentRepository.save((Memory) component);
-        } if (component.getType() == ComponentType.MOTHER) {
-            return motherboardComponentRepository.save((Motherboard) component);
         } if (component.getType() == ComponentType.PROC) {
             return processComponentRepository.save((Processor) component);
         } else {
@@ -57,8 +51,6 @@ public class ComponentService {
             return graphicsCardComponentRepository.findById(id);
         } if (memoryComponentRepository.findById(id).isPresent()) {
             return memoryComponentRepository.findById(id);
-        } if (motherboardComponentRepository.findById(id).isPresent()) {
-            return motherboardComponentRepository.findById(id);
         } if (processComponentRepository.findById(id).isPresent()) {
             return processComponentRepository.findById(id);
         } else {
@@ -71,8 +63,6 @@ public class ComponentService {
             return graphicsCardComponentRepository.save((GraphicsCard) component);
         } if (component.getType() == ComponentType.MEM) {
             return memoryComponentRepository.save((Memory) component);
-        } if (component.getType() == ComponentType.MOTHER) {
-            return motherboardComponentRepository.save((Motherboard) component);
         } if (component.getType() == ComponentType.PROC) {
             return processComponentRepository.save((Processor) component);
         } else {
@@ -85,8 +75,6 @@ public class ComponentService {
             graphicsCardComponentRepository.deleteById(id);
         } if (memoryComponentRepository.findById(id).isPresent()) {
             memoryComponentRepository.deleteById(id);
-        } if (motherboardComponentRepository.findById(id).isPresent()) {
-            motherboardComponentRepository.deleteById(id);
         } if (processComponentRepository.findById(id).isPresent()) {
             processComponentRepository.deleteById(id);
         }

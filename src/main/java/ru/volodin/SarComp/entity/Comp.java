@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 import ru.volodin.SarComp.entity.components.GraphicsCard;
 import ru.volodin.SarComp.entity.components.Memory;
-import ru.volodin.SarComp.entity.components.Motherboard;
 import ru.volodin.SarComp.entity.components.Processor;
 
 import java.util.Date;
@@ -25,8 +24,6 @@ public class Comp {
     @NotNull(message = "не указана стоимость")
     private Float cost;
 
-    @ManyToOne
-    private Motherboard motherboard;
     @ManyToOne
     @JoinColumn(name = "graphicscard_id")
     private GraphicsCard graphicsCard;
