@@ -21,7 +21,9 @@ public class CompService {
     }
 
     public Comp addComp(Comp comp){
-        return compRepository.save(comp);
+        Comp savedComp = compRepository.save(comp);
+        return compRepository.findByIdWithDetails(savedComp.getId()).orElseThrow(() ->
+                new NoSuchElementException("Услуга не была найдена!"));
     }
 
     public Comp getCompById(UUID id){
