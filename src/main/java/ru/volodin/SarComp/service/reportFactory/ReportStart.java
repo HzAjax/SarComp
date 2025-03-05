@@ -3,22 +3,24 @@ package ru.volodin.SarComp.service.reportFactory;
 import com.deepoove.poi.XWPFTemplate;
 import com.deepoove.poi.config.Configure;
 import com.deepoove.poi.plugin.table.LoopRowTableRenderPolicy;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Component;
 import ru.volodin.SarComp.entity.Report;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 
+@Component
 public class ReportStart implements ReportProcessor {
 
-    private String templatePath = "resources/storage/reports/templates/start";
-    private String uploadPath = "resources/storage/reports/start";
+    private String templatePath = "storage/reports/templates/start.docx";
+    private String uploadPath = "D:/JavaProjects/SarComp/src/main/resources/storage/reports/start/";
 
     @Override
     public Report process(Report report) throws IOException {
@@ -46,9 +48,22 @@ public class ReportStart implements ReportProcessor {
     private Map<String, Object> prepareTemplate(Report report) {
         Map<String, Object> data = new HashMap<>();
 
-        //TODO накидать данных
+        long orderDays = countDaysBetween(report.getComp().getStartOrder(), report.getComp().getEndOrder());
+
         data.put("docNumber", report.getDocNumber());
+        data.put("nowDate", LocalDate.now());
+        data.put("clientName", report.getClient().getName());
+        data.put("CompCost", report.getComp().getCost());
+        data.put("days", orderDays);
+        data.put("clientPhone", report.getClient().getPhone());
 
         return data;
+    }
+
+    private long countDaysBetween(Date startOrder, Date endOrder) {
+        return ChronoUnit.DAYS.between(
+                startOrder.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+                endOrder.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+        );
     }
 }
