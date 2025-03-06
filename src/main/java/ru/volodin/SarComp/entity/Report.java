@@ -25,6 +25,11 @@ public class Report {
     private Comp comp;
 
     @ManyToMany
+    @JoinTable(
+            name = "report_additions", // 🔹 Название промежуточной таблицы
+            joinColumns = @JoinColumn(name = "report_id"), // 🔹 FK на Report
+            inverseJoinColumns = @JoinColumn(name = "addition_id") // 🔹 FK на Addition
+    )
     private List<Addition> additions;
 
     @NotNull(message = "Не указан тип отчета")

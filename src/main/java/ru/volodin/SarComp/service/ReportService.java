@@ -14,9 +14,13 @@ import ru.volodin.SarComp.service.reportFactory.ReportFactory;
 import ru.volodin.SarComp.service.reportFactory.ReportProcessor;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -66,6 +70,14 @@ public class ReportService {
     }
 
     public void deleteById(UUID id) {
+        Report report = reportRepository.findById(id).orElseThrow(() ->
+                new NoSuchElementException("Отчет не найден!"));
+        Path path = Paths.get(report.getFilePath());
+        try {
+            Files.delete(path);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         reportRepository.deleteById(id);
     }
 }
