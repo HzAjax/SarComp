@@ -26,7 +26,7 @@ public class ClientService {
 
     public Client getClientById(UUID id){
         return clientRepository.findById(id).orElseThrow(() ->
-                new NoSuchElementException("Услуга не была найдена!"));
+                new NoSuchElementException("Клиент не был найден!"));
     }
 
     public Client updateClient(Client client){
