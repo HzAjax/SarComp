@@ -4,7 +4,7 @@ import ru.volodin.SarComp.entity.Addition;
 
 import java.util.UUID;
 
-public class AdditionalServiceConstants {
+public class AdditionServiceConstants {
     public static UUID additTestUUID = UUID.fromString("f981749f-4c4b-4a09-80bb-d178aca26866");
     public static UUID  additTestUUIDOne = UUID.fromString("f981749f-4c4b-4a09-80bb-d178aca26861");
     public static UUID  additTestUUIDTwo = UUID.fromString("f981749f-4c4b-4a09-80bb-d178aca26326");

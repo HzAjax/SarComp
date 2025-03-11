@@ -12,7 +12,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/sarcomp/leads")
 @SuppressWarnings({"unused"})
-public class LeadComponent {
+public class LeadController {
 
     @Autowired
     private LeadService leadService;
