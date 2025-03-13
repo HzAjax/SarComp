@@ -18,6 +18,9 @@ public class LeadService {
     private LeadRepository leadRepository;
 
     @Autowired
+    private TelegramBotService telegramBotService;
+
+    @Autowired
     private CompRepository compRepository;
 
     public List<Lead> findAllLeads() {
@@ -28,6 +31,7 @@ public class LeadService {
         Comp compFromDb = compRepository.findById(lead.getComp().getId()).orElseThrow(() ->
                 new NoSuchElementException("ПК не был найден в БД!"));
         lead.setComp(compFromDb);
+        System.out.println(telegramBotService.sendNotificationTelegram(lead));
         return leadRepository.save(lead);
     }
 
