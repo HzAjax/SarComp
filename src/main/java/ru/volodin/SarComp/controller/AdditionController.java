@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.volodin.SarComp.entity.Addition;
 import ru.volodin.SarComp.service.AdditionService;
+import ru.volodin.SarComp.service.kafka.KafkaProducerService;
 
 import java.util.UUID;
 
@@ -15,11 +16,15 @@ import java.util.UUID;
 public class AdditionController {
 
     @Autowired
+    private KafkaProducerService kafkaProducerService;
+
+    @Autowired
     private AdditionService additionService;
 
     @PostMapping
     public ResponseEntity<?> addAddition(@Valid @RequestBody Addition addition){
         try{
+            kafkaProducerService.sendMessage("my-topic", "Addition add" + addition.getName());
            return ResponseEntity.ok(additionService.addAddition(addition));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
