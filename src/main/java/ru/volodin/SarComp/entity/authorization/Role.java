@@ -1,7 +1,9 @@
 package ru.volodin.SarComp.entity.authorization;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.util.UUID;
 
@@ -11,15 +13,15 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Role /*implements GrantedAuthority*/ {
+public class Role implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     protected UUID id;
     protected String name;
 
-    /*@JsonIgnore
+    @JsonIgnore
     @Override
     public String getAuthority() {
         return name;
-    }*/
+    }
 }
