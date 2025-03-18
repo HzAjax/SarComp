@@ -21,18 +21,17 @@ spring:
       max-file-size: 10MB  # Максимальный размер загружаемого файла
       max-request-size: 10MB  # Максимальный размер всего запроса
   kafka:
-    bootstrap-servers: localhost:9092
     producer:
+      bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
     consumer:
-      group-id: my-group
-      auto-offset-reset: earliest
+      bootstrap-servers: localhost:9092
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-app:
-  kafka:
-    topic:
-      my-topic: my-topic-name
+kafka:
+  topic:
+    name: my-topic
+    group: my-group
 server:
   port: 8080
