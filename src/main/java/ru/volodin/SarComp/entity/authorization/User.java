@@ -21,6 +21,7 @@ public class User implements UserDetails {
     protected String login;
     protected String password;
     @ManyToOne
+    @JoinColumn(name = "role_id")
     protected Role role;
 
     @Override

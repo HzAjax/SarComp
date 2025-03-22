@@ -1,3 +1,6 @@
+bot:
+  token: 332gdgrdgdsgsdfg3
+  chatId: 2141241241
 spring:
   application:
     name: SarComp
@@ -32,6 +35,9 @@ spring:
 jwt:
   access:
     secret: pCUDF0J7Z/bKD8wysWJIzys5AabF4Ug2P7t3sk7aSkIi4Z1sUpFFFSTha4tbr/Kt5E6rLabIwCR1xQVmALsiRA==
+    exp_time: 3000000
+  refresh:
+    secret: pCUDF0J7Z/bKD8wysWJIzys5AabF4Uy2P7t3sk7aSkIi4Z1sUpFFFSTha4tbr/Kt5E6rLabIwCR1xQVmALsiRA==
     exp_time: 3000000
 kafka:
   topic:

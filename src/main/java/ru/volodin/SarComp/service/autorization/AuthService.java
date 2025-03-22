@@ -37,7 +37,7 @@ public class AuthService {
             throw new RuntimeException("Пользователь не найден");
         }
 
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.get().getUsername(), jwtReq.getPassword()));
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.get().getUsername(), jwtReq.getPassword())); //TODO ?????
 
         return new JwtResponse(jwtService.generateToken(TokenType.ACCESS, user.get().getLogin(), user.get()),
                 jwtService.generateToken(TokenType.REFRESH, user.get().getLogin(), null));

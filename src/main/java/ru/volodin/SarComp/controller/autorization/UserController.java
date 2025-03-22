@@ -9,7 +9,7 @@ import ru.volodin.SarComp.service.autorization.UserService;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/sarcomp/users")
 @SuppressWarnings({"unused"})
 public class UserController {
     @Autowired

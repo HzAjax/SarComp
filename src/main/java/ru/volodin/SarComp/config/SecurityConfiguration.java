@@ -2,6 +2,7 @@ package ru.volodin.SarComp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -55,10 +56,11 @@ public class SecurityConfiguration {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/users/**", "/api/roles/**").hasAuthority(Constants.Roles.ROLE_USER_CODE)
+                        .requestMatchers("/sarcomp/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/sarcomp/users").permitAll()
+                        .requestMatchers("/sarcomp/users/**", "/sarcomp/roles/**", "/sarcomp/additions/**").hasAuthority(Constants.Roles.ROLE_USER_CODE)
                         .anyRequest().authenticated()
-                )// TODO настрочить ссылок
+                )
                 .formLogin(AbstractHttpConfigurer::disable)
                 .sessionManagement(e -> e.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider());

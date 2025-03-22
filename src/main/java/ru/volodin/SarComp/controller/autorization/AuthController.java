@@ -12,7 +12,7 @@ import ru.volodin.SarComp.service.autorization.AuthService;
 
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/sarcomp/auth")
 @SuppressWarnings({"unused"})
 public class AuthController {
     @Autowired

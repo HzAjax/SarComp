@@ -10,7 +10,7 @@ import ru.volodin.SarComp.service.autorization.RoleService;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/roles")
+@RequestMapping("/sarcomp/roles")
 @SuppressWarnings({"unused"})
 public class RoleController {
     @Autowired
