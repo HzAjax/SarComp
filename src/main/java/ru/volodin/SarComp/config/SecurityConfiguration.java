@@ -59,6 +59,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/sarcomp/auth/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/sarcomp/users").permitAll()
                         .requestMatchers("/sarcomp/users/**", "/sarcomp/roles/**", "/sarcomp/additions/**").hasAuthority(Constants.Roles.ROLE_USER_CODE)
+                        //TODO добавить все маппинги
                         .anyRequest().authenticated()
                 )
                 .formLogin(AbstractHttpConfigurer::disable)

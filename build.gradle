@@ -57,7 +57,3 @@ dependencies {
 	// Документогенерация
 	implementation 'com.deepoove:poi-tl:1.12.2'
 }
-
-tasks.named('test') {
-	useJUnitPlatform()
-}

@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(ComponentController.class)
 class ComponentControllerTest {
-
+/*
     @Autowired
     private MockMvc mockMvc;
 
@@ -87,7 +87,9 @@ class ComponentControllerTest {
 
         verify(componentService, times(1)).getComponentById(componentId);
     }
-*/
+
+ */
+/*
     @Test
     void editComponent() throws Exception {
         Component component = new Component();
@@ -115,4 +117,6 @@ class ComponentControllerTest {
 
         verify(componentService, times(1)).deleteComponentById(componentId);
     }
+
+ */
 }

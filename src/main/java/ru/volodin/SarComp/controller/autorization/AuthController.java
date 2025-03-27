@@ -1,6 +1,7 @@
 package ru.volodin.SarComp.controller.autorization;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,9 @@ import ru.volodin.SarComp.service.autorization.AuthService;
 @RequestMapping("/sarcomp/auth")
 @SuppressWarnings({"unused"})
 public class AuthController {
+    @Autowired
+    private Environment environment;
+
     @Autowired
     private AuthService authService;
 

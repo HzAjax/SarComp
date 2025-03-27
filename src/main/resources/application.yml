@@ -5,7 +5,7 @@ spring:
   application:
     name: SarComp
   datasource:
-    url: jdbc:postgresql://localhost:5432/sarcomp
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/sarcomp}
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
     password: ${SPRING_DATASOURCE_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
@@ -24,12 +24,11 @@ spring:
       max-file-size: 10MB  # Максимальный размер загружаемого файла
       max-request-size: 10MB  # Максимальный размер всего запроса
   kafka:
+    bootstrap-servers: kafka:9092
     producer:
-      bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
     consumer:
-      bootstrap-servers: localhost:9092
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 jwt:
